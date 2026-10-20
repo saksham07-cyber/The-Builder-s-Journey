@@ -1,0 +1,6 @@
+{
+  "name": "The Builder's Journey - Sundar Pichai Showcase",
+  "description": "An editorial entrepreneur showcase exploring the career, product leadership, and ventures of Sundar Pichai, CEO of Google and Alphabet.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

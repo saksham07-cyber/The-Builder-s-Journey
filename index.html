@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Builder's Journey — Sundar Pichai Showcase</title>
+    <meta name="description" content="An editorial entrepreneur showcase exploring the career, product leadership, and ventures of Sundar Pichai, CEO of Google and Alphabet." />
+    <meta property="og:title" content="The Builder's Journey — Sundar Pichai Showcase" />
+    <meta property="og:description" content="An editorial entrepreneur showcase exploring the career, product leadership, and ventures of Sundar Pichai, CEO of Google and Alphabet." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- ====================================================================
+         Cinematic 3D Canvas Particle Intro Animation
+         ==================================================================== -->
+    <div id="particle-intro" class="particle-intro-overlay" role="dialog" aria-modal="true" aria-label="Cinematic 3D Particle Intro">
+      <canvas id="intro-canvas"></canvas>
+      <button type="button" id="intro-skip-hint" class="intro-skip-hint">
+        <span>Click anywhere or press Esc to skip</span>
+        <span aria-hidden="true">→</span>
+      </button>
+    </div>
+
+    <!-- Top Reading Progress Indicator -->
+    <div id="scroll-progress" role="progressbar" aria-label="Reading progress bar" aria-valuemin="0" aria-valuemax="100"></div>
+
+    <!-- Floating Glassmorphism Navigation Slider Header -->
+    <header class="site-header-wrapper" id="site-header-wrapper">
+      <div class="glass-navbar" id="glass-navbar">
+        <!-- Zone 1: Brand Mark with Sundar Pichai Avatar & Refined Monogram Typography -->
+        <a href="#hero" class="brand-mark" aria-label="The Builder's Journey Home">
+          <div class="brand-avatar-frame">
+            <img 
+              src="assets/images/sundar_pichai_hero.png" 
+              alt="Sundar Pichai" 
+              class="brand-avatar-img"
+              loading="eager"
+              onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
+            />
+            <span class="brand-avatar-fallback" aria-hidden="true">SP</span>
+          </div>
+          <div class="brand-text-col">
+            <span class="brand-title">THE BUILDER’S JOURNEY</span>
+            <span class="brand-subtitle">SUNDAR PICHAI · ALPHABET</span>
+          </div>
+        </a>
+
+        <!-- Zone 2: Glass Slider Navigation with Smooth Active Indicator -->
+        <nav class="glass-nav-track" aria-label="Primary Navigation">
+          <ul class="nav-slider-list" id="nav-slider-list">
+            <!-- Sliding Capsule Active Highlight Indicator -->
+            <li class="nav-slider-indicator" id="nav-slider-indicator" aria-hidden="true"></li>
+            
+            <li><a href="#overview" class="nav-link" data-section="overview">Overview</a></li>
+            <li><a href="#timeline" class="nav-link" data-section="timeline">Timeline</a></li>
+            <li><a href="#ventures" class="nav-link" data-section="ventures">Ventures</a></li>
+            <li><a href="#gallery" class="nav-link" data-section="gallery">Gallery</a></li>
+            <li><a href="#impact" class="nav-link" data-section="impact">Impact</a></li>
+            <li><a href="#lessons" class="nav-link" data-section="lessons">Lessons</a></li>
+            <li><a href="#sources" class="nav-link" data-section="sources">Sources</a></li>
+          </ul>
+        </nav>
+
+        <!-- Zone 3: Primary Action & Mobile Menu Toggle -->
+        <div class="nav-actions">
+          <a href="#gallery" class="btn-header-cta" id="header-gallery-cta">
+            <span>View Gallery</span>
+            <span class="cta-arrow" aria-hidden="true">→</span>
+          </a>
+          <button 
+            type="button" 
+            id="mobile-menu-btn" 
+            class="mobile-menu-btn" 
+            aria-label="Open navigation menu" 
+            aria-expanded="false" 
+            aria-controls="mobile-drawer"
+          >
+            <span class="hamburger-line line-1" aria-hidden="true"></span>
+            <span class="hamburger-line line-2" aria-hidden="true"></span>
+            <span class="hamburger-line line-3" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Drawer Navigation -->
+    <div id="mobile-drawer" class="mobile-drawer" aria-label="Mobile Navigation Menu">
+      <ul class="mobile-nav-links">
+        <li><a href="#overview" class="mobile-nav-link">Overview</a></li>
+        <li><a href="#timeline" class="mobile-nav-link">Timeline</a></li>
+        <li><a href="#ventures" class="mobile-nav-link">Ventures</a></li>
+        <li><a href="#gallery" class="mobile-nav-link">Photo Gallery</a></li>
+        <li><a href="#impact" class="mobile-nav-link">Impact</a></li>
+        <li><a href="#lessons" class="mobile-nav-link">Lessons</a></li>
+        <li><a href="#sources" class="mobile-nav-link">Sources & Bibliography</a></li>
+      </ul>
+      <div class="mobile-drawer-footer">
+        <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-text-muted); text-transform: uppercase;">Entrepreneur Showcase</span>
+        <p style="font-size: 0.875rem; color: var(--color-text-secondary); margin-top: 4px;">Technical Team Recruitment Project · 2nd-Year B.Tech CSE</p>
+      </div>
+    </div>
+
+    <!-- Main Content (Seamless Unified Editorial Canvas) -->
+    <main id="main-content">
+      <!-- ====================================================================
+           Hero Section with Authentic Event Photograph
+           ==================================================================== -->
+      <section id="hero" class="hero-section">
+        <div class="container">
+          <div class="hero-grid">
+            <!-- Left Column: Typographic Hierarchy -->
+            <div class="hero-content">
+              <span class="hero-eyebrow">ENTREPRENEUR SHOWCASE · TECHNOLOGY & LEADERSHIP</span>
+              
+              <h1 class="hero-headline">The builder behind products used by billions.</h1>
+              
+              <div class="hero-profile-lockup">
+                <h2 class="hero-subject-name">Sundar Pichai</h2>
+                <span class="hero-subject-title">CEO of Google and Alphabet</span>
+              </div>
+
+              <p class="hero-bio">
+                Sundar Pichai is an Indian-born technology executive known for his leadership at Google and Alphabet. His career reflects the impact of product thinking, engineering leadership, and long-term innovation in technology.
+              </p>
+
+              <div class="hero-cta-group">
+                <a href="#gallery" class="btn-primary">
+                  <span>Explore photo gallery</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+                <a href="#timeline" class="btn-secondary">
+                  <span>View career timeline</span>
+                  <span aria-hidden="true">↓</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Column: Authentic Event Photograph Frame -->
+            <div class="hero-portrait-card">
+              <div class="hero-portrait-inner" aria-label="Sundar Pichai Event Photograph">
+                <span class="hero-portrait-badge">Sun Valley Summit</span>
+                <img 
+                  src="assets/images/sundar_pichai_hero.png" 
+                  alt="Photograph of Sundar Pichai, CEO of Google and Alphabet" 
+                  class="hero-portrait-img"
+                  loading="eager"
+                  referrerPolicy="no-referrer"
+                  onerror="this.src='assets/images/event_sunvalley_conference.png'"
+                />
+              </div>
+
+              <div class="portrait-caption">
+                <span>Sundar Pichai · CEO, Alphabet & Google</span>
+                <span class="portrait-credit">OFFICIAL EVENT PHOTOGRAPH</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Full-Width Metrics Strip Below Hero Split -->
+          <div class="hero-metrics-strip reveal-on-scroll">
+            <div class="metric-item">
+              <div class="metric-number tabular-nums">2004—Present</div>
+              <div class="metric-label">Two Decades of Leadership</div>
+              <p class="metric-desc">From leading Google Toolbar to Chief Executive Officer of Alphabet Inc.</p>
+            </div>
+
+            <div class="metric-item">
+              <div class="metric-number tabular-nums">3 Billion+</div>
+              <div class="metric-label">Daily Global Users</div>
+              <p class="metric-desc">Scale of consumer access enabled by platforms overseen or developed during his leadership, including Chrome and Android.</p>
+            </div>
+
+            <div class="metric-item">
+              <div class="metric-number tabular-nums">Materials to AI</div>
+              <div class="metric-label">Engineering Foundation</div>
+              <p class="metric-desc">B.Tech in Metallurgical Engineering (IIT Kharagpur), MS in Materials Science (Stanford), and MBA (Wharton School).</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ====================================================================
+           Entrepreneur Overview Section (Unified Background)
+           ==================================================================== -->
+      <section id="overview" class="section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-eyebrow">CASE STUDY & PRODUCT PHILOSOPHY</span>
+            <h2 class="section-title">Why Study Sundar Pichai?</h2>
+            <p class="section-subtitle">
+              An editorial analysis of how engineering depth, product conviction, and low-ego executive leadership shaped the contemporary computing landscape.
+            </p>
+          </div>
+
+          <div class="overview-grid">
+            <article class="overview-card reveal-on-scroll">
+              <span class="overview-card-number">01. FOUNDATIONAL ROOTS</span>
+              <h3 class="overview-card-title">Engineering & Product Thinking</h3>
+              <p class="overview-card-text">
+                Trained as a metallurgical engineer at IIT Kharagpur and a materials scientist at Stanford University, Pichai approached software not merely as marketing artifacts, but as distributed physical systems. His deep comprehension of algorithmic latency, memory constraints, and silicon fundamentals shaped his conviction that speed is the foundational feature of software products.
+              </p>
+            </article>
+
+            <article class="overview-card reveal-on-scroll">
+              <span class="overview-card-number">02. STRATEGIC CONVICTION</span>
+              <h3 class="overview-card-title">The Power of Focused Execution</h3>
+              <p class="overview-card-text">
+                During an era when Internet Explorer controlled over 70% of web browsing, Pichai championed building a standalone browser. Recognizing that Microsoft could weaponize default search bars to threaten Google, he demonstrated how a sandboxed, lightning-fast browser running V8 JavaScript would elevate the entire open web into a software platform.
+              </p>
+            </article>
+
+            <article class="overview-card reveal-on-scroll">
+              <span class="overview-card-number">03. EXECUTIVE TRANSITION</span>
+              <h3 class="overview-card-title">Consensus-Driven Leadership</h3>
+              <p class="overview-card-text">
+                Pichai's progression from leading Toolbar to overseeing Chrome, Android, Google, and finally Alphabet demonstrates a leadership model rooted in listening, psychological safety, and quiet alignment. His governance proved that technical clarity and low-ego collaboration can orchestrate planetary-scale organizations without dogmatic friction.
+              </p>
+            </article>
+          </div>
+
+          <!-- Academic Context Box -->
+          <div class="academic-context-box reveal-on-scroll">
+            <div>
+              <h4 class="academic-context-title">Academic Recruitment Context</h4>
+              <p class="academic-context-text">
+                Showcase submission by a second-year B.Tech Computer Science student evaluating product management, platform architecture, and leadership evolution in technology enterprises.
+              </p>
+            </div>
+            <a href="#timeline" class="btn-primary" style="white-space: nowrap; align-self: flex-start;">
+              <span>View Timeline</span>
+              <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ====================================================================
+           Career Timeline Section (Dynamically Rendered from JS)
+           ==================================================================== -->
+      <section id="timeline" class="section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-eyebrow">CHRONOLOGICAL MILESTONES</span>
+            <h2 class="section-title">Career Milestones</h2>
+            <p class="section-subtitle">
+              Documented milestones from product manager to CEO of Alphabet, rendered dynamically with primary sources.
+            </p>
+          </div>
+
+          <!-- Interactive Category-Based Filter & Action Bar -->
+          <div class="timeline-filter-container">
+            <div class="timeline-controls-row">
+              <div class="timeline-filter-group" role="tablist" aria-label="Filter timeline milestones by phase">
+                <button type="button" role="tab" class="timeline-filter-btn active" data-filter="all" aria-selected="true" id="filter-all">
+                  <span>All Milestones</span>
+                  <span class="timeline-filter-count" id="count-all">6</span>
+                </button>
+                <button type="button" role="tab" class="timeline-filter-btn" data-filter="product" aria-selected="false" id="filter-product">
+                  <span>Product Phase</span>
+                  <span class="timeline-filter-count" id="count-product">4</span>
+                </button>
+                <button type="button" role="tab" class="timeline-filter-btn" data-filter="executive" aria-selected="false" id="filter-executive">
+                  <span>Executive Leadership</span>
+                  <span class="timeline-filter-count" id="count-executive">2</span>
+                </button>
+              </div>
+
+              <button type="button" id="toggle-all-milestones" class="timeline-toggle-all-btn">
+                <span>Expand all</span>
+                <span aria-hidden="true">↓</span>
+              </button>
+            </div>
+
+            <!-- Dynamic Phase Summary Banner -->
+            <div id="timeline-phase-summary" class="timeline-phase-summary-banner" aria-live="polite">
+              <span class="timeline-phase-badge" id="timeline-phase-badge">ALL PHASES</span>
+              <span id="timeline-phase-desc">Viewing all 6 key career inflection points spanning two decades of engineering conviction and executive governance (2004–Present).</span>
+            </div>
+          </div>
+
+          <!-- Dynamic Timeline Container -->
+          <div class="timeline-track" id="timeline-container" aria-live="polite">
+            <!-- Rendered dynamically by public/app.js -->
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ====================================================================
+           Ventures & Products Section (Dynamically Rendered from JS)
+           ==================================================================== -->
+      <section id="ventures" class="section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-eyebrow">PLATFORMS & PRODUCTS</span>
+            <h2 class="section-title">Ideas that became everyday tools.</h2>
+            <p class="section-subtitle">
+              Essential digital utilities steered by Pichai's product leadership and executive oversight, serving billions of users worldwide.
+            </p>
+          </div>
+
+          <!-- Dynamic Ventures Grid -->
+          <div class="ventures-grid" id="ventures-container">
+            <!-- Rendered dynamically by public/app.js -->
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ====================================================================
+           Interactive Photo Gallery Section (CSS Grid & Hover-to-Zoom)
+           ==================================================================== -->
+      <section id="gallery" class="section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-eyebrow">ARCHIVAL PHOTOGRAPHY</span>
+            <h2 class="section-title">Moments in Public Leadership</h2>
+            <p class="section-subtitle">
+              An interactive visual archive of public domain and press photographs capturing keynotes, bilateral policy summits, and platform milestones.
+            </p>
+          </div>
+
+          <!-- Gallery Filter Controls -->
+          <div class="gallery-controls">
+            <div class="gallery-filter-group" role="group" aria-label="Filter photo gallery by category">
+              <button type="button" class="gallery-filter-btn active" data-filter="all">All Moments</button>
+              <button type="button" class="gallery-filter-btn" data-filter="summits">Leadership Summits</button>
+              <button type="button" class="gallery-filter-btn" data-filter="policy">Policy & Governance</button>
+              <button type="button" class="gallery-filter-btn" data-filter="keynotes">Keynotes & Press</button>
+              <button type="button" class="gallery-filter-btn" data-filter="products">Product Inceptions</button>
+            </div>
+
+            <div style="font-family: var(--font-mono); font-size: 0.8125rem; color: var(--color-text-muted);">
+              <span>Click any image to enlarge</span>
+            </div>
+          </div>
+
+          <!-- Dynamic Gallery Grid with CSS Grid -->
+          <div class="gallery-grid" id="gallery-grid" aria-live="polite">
+            <!-- Rendered dynamically by public/app.js -->
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ====================================================================
+           Impact & Achievements Section
+           ==================================================================== -->
+      <section id="impact" class="section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-eyebrow">MEASURABLE OUTCOMES</span>
+            <h2 class="section-title">Impact beyond the title.</h2>
+            <p class="section-subtitle">
+              Three systemic contributions to the global computing architecture and the broader technology ecosystem.
+            </p>
+          </div>
+
+          <div class="impact-grid">
+            <article class="impact-card reveal-on-scroll">
+              <span class="impact-index">01. PERFORMANCE ARCHITECTURE</span>
+              <h3 class="impact-title">Open Web Standards & Sandboxed Security</h3>
+              <p class="impact-explanation">
+                Before Chrome's introduction in 2008, web browsers frequently crashed entirely when a single tab encountered an unhandled script error. Pichai's team architected multi-process tab isolation—treating each tab as an independent operating system process—while open-sourcing the Chromium codebase and V8 JavaScript engine.
+              </p>
+              <div class="impact-why-box">
+                <span class="impact-why-label">Why it matters to users</span>
+                <p class="impact-why-text">
+                  Transformed web pages from static documents into dynamic web applications capable of matching native software performance, establishing the bedrock for modern cloud software.
+                </p>
+              </div>
+              <a href="https://googlepress.blogspot.com/2008/09/google-chrome-new-take-on-browser_02.html" class="impact-source-link" target="_blank" rel="noopener noreferrer">
+                <span>View Google Chrome Launch Announcement</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+
+            <article class="impact-card reveal-on-scroll">
+              <span class="impact-index">02. GLOBAL EQUALITY</span>
+              <h3 class="impact-title">Democratization of Mobile Computing</h3>
+              <p class="impact-explanation">
+                Taking charge of Android in March 2013, Pichai unified Google's mobile operating system with its core cloud and web application services. He introduced the "Android One" initiative to eliminate device fragmentation and ensure consistent software updates on entry-level hardware across developing nations.
+              </p>
+              <div class="impact-why-box">
+                <span class="impact-why-label">Why it matters to users</span>
+                <p class="impact-why-text">
+                  Enabled affordable, high-utility computing hardware across emerging markets including India, Southeast Asia, and Africa, bringing billions of first-time users into the global digital economy.
+                </p>
+              </div>
+              <a href="https://blog.google/products-and-platforms/platforms/android/update-from-ceo/" class="impact-source-link" target="_blank" rel="noopener noreferrer">
+                <span>View Google Android Leadership Notice</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+
+            <article class="impact-card reveal-on-scroll">
+              <span class="impact-index">03. STRATEGIC TRANSITION</span>
+              <h3 class="impact-title">The Strategic 'AI-First' Pivot</h3>
+              <p class="impact-explanation">
+                At Google I/O in 2016, Pichai announced a historic shift in company orientation from "mobile-first to AI-first." Under this directive, Google invested deeply in specialized Tensor Processing Units (TPUs), machine learning research, DeepMind scientific discoveries (such as AlphaFold), and foundational multimodality.
+              </p>
+              <div class="impact-why-box">
+                <span class="impact-why-label">Why it matters to users</span>
+                <p class="impact-why-text">
+                  Shifted enterprise and consumer applications toward intelligent automation, predictive systems, real-time language translation, and life sciences acceleration.
+                </p>
+              </div>
+              <a href="https://www.sec.gov/Archives/edgar/data/1652044/000119312519305505/d843403dex991.htm" class="impact-source-link" target="_blank" rel="noopener noreferrer">
+                <span>View Alphabet Leadership Filing</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ====================================================================
+           Lessons for Aspiring Entrepreneurs Section
+           ==================================================================== -->
+      <section id="lessons" class="section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-eyebrow">PRINCIPLES & REFLECTIONS</span>
+            <h2 class="section-title">Lessons worth building on.</h2>
+            <p class="section-subtitle">
+              Actionable principles extracted from documented product execution, tailored for computer science students and technical builders.
+            </p>
+          </div>
+
+          <div class="lessons-grid">
+            <article class="lesson-card reveal-on-scroll">
+              <span class="lesson-number">LESSON 01</span>
+              <h3 class="lesson-headline">Solve Real User Problems</h3>
+              <p class="lesson-explanation">
+                Successful technology products must prioritize core utility, speed, reliability, and friction reduction rather than ornamental features. Engineering excellence should always translate directly into user relief and demonstrable performance improvements.
+              </p>
+              <div class="lesson-example">
+                <span class="lesson-example-tag">Documented Example</span>
+                Google Chrome was designed around one obsessive metric: minimizing the milliseconds between a user's keystroke and the rendering of a web application.
+              </div>
+              <div class="lesson-takeaway-box">
+                <span class="lesson-takeaway-label">Student Takeaway</span>
+                <p class="lesson-takeaway-text">
+                  Before writing lines of code, ask if you are solving an authentic user friction point or building complexity for its own sake.
+                </p>
+              </div>
+            </article>
+
+            <article class="lesson-card reveal-on-scroll">
+              <span class="lesson-number">LESSON 02</span>
+              <h3 class="lesson-headline">Keep Learning and Adapting</h3>
+              <p class="lesson-explanation">
+                Technology leaders must evolve with changing platforms, architectures, and markets. Long-term leadership requires an intellectual agility that transcends any single programming language, framework, or product vertical.
+              </p>
+              <div class="lesson-example">
+                <span class="lesson-example-tag">Documented Example</span>
+                Pichai transitioned his technical expertise from metallurgy to materials science, from desktop web toolbars to mobile operating systems, and ultimately to neural network infrastructure.
+              </div>
+              <div class="lesson-takeaway-box">
+                <span class="lesson-takeaway-label">Student Takeaway</span>
+                <p class="lesson-takeaway-text">
+                  Anchor yourself in foundational computing disciplines rather than transient framework trends, enabling you to pivot smoothly as paradigms shift.
+                </p>
+              </div>
+            </article>
+
+            <article class="lesson-card reveal-on-scroll">
+              <span class="lesson-number">LESSON 03</span>
+              <h3 class="lesson-headline">Consensus and Psychological Safety</h3>
+              <p class="lesson-explanation">
+                Complex systems are built by cross-functional teams, not isolated autocrats. Pichai built authority inside Google not through combative posturing, but by establishing trust, listening to engineers, and building common purpose across disparate teams.
+              </p>
+              <div class="lesson-example">
+                <span class="lesson-example-tag">Documented Example</span>
+                Unifying the previously divergent Chrome and Android engineering organizations into a collaborative ecosystem without organizational rebellion.
+              </div>
+              <div class="lesson-takeaway-box">
+                <span class="lesson-takeaway-label">Student Takeaway</span>
+                <p class="lesson-takeaway-text">
+                  Your ability to communicate ideas clearly and foster psychological safety in a group project is as decisive to project success as your raw code.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ====================================================================
+           Sources & Further Reading Section
+           ==================================================================== -->
+      <section id="sources" class="section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-eyebrow">VERIFIED BIBLIOGRAPHY</span>
+            <h2 class="section-title">Sources & further reading</h2>
+            <p class="section-subtitle">
+              Every factual assertion, date, and leadership transition cited in this showcase is grounded in credible corporate announcements, official author portals, and SEC regulatory filings.
+            </p>
+          </div>
+
+          <div class="sources-grid">
+            <article class="source-item-card reveal-on-scroll">
+              <div>
+                <span class="source-type-tag">Official Author Portal</span>
+                <h3 class="source-item-title">Sundar Pichai — The Keyword Blog</h3>
+                <p class="source-item-desc">
+                  Official publications, public statements, and product release reflections authored directly by Sundar Pichai on Google's blog.
+                </p>
+              </div>
+              <a href="https://blog.google/authors/sundar-pichai/" class="source-item-link" target="_blank" rel="noopener noreferrer">
+                <span>https://blog.google/authors/sundar-pichai/</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+
+            <article class="source-item-card reveal-on-scroll">
+              <div>
+                <span class="source-type-tag">Primary Launch Notice</span>
+                <h3 class="source-item-title">Google Chrome: A New Take on the Browser</h3>
+                <p class="source-item-desc">
+                  The official September 2, 2008 launch announcement detailing Chrome's architecture, V8 JavaScript engine, and multi-process design.
+                </p>
+              </div>
+              <a href="https://googlepress.blogspot.com/2008/09/google-chrome-new-take-on-browser_02.html" class="source-item-link" target="_blank" rel="noopener noreferrer">
+                <span>https://googlepress.blogspot.com/2008/09/google-chrome-new-take-on-browser_02.html</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+
+            <article class="source-item-card reveal-on-scroll">
+              <div>
+                <span class="source-type-tag">Executive Announcement</span>
+                <h3 class="source-item-title">Update from the CEO: Android Leadership</h3>
+                <p class="source-item-desc">
+                  Larry Page's March 2013 announcement appointing Sundar Pichai to lead the Android ecosystem alongside Chrome and Google Apps.
+                </p>
+              </div>
+              <a href="https://blog.google/products-and-platforms/platforms/android/update-from-ceo/" class="source-item-link" target="_blank" rel="noopener noreferrer">
+                <span>https://blog.google/products-and-platforms/platforms/android/update-from-ceo/</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+
+            <article class="source-item-card reveal-on-scroll">
+              <div>
+                <span class="source-type-tag">Parent Corporation Portal</span>
+                <h3 class="source-item-title">Alphabet Inc. Official Portal</h3>
+                <p class="source-item-desc">
+                  Corporate structure, investor relations, founder letters, and operating entity profiles for Alphabet Inc. and Google LLC.
+                </p>
+              </div>
+              <a href="https://abc.xyz/" class="source-item-link" target="_blank" rel="noopener noreferrer">
+                <span>https://abc.xyz/</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+
+            <article class="source-item-card reveal-on-scroll">
+              <div>
+                <span class="source-type-tag">Regulatory Filing</span>
+                <h3 class="source-item-title">SEC Form 8-K: Alphabet Leadership Succession</h3>
+                <p class="source-item-desc">
+                  Official United States Securities and Exchange Commission filing detailing the December 2019 transition of CEO responsibilities to Sundar Pichai.
+                </p>
+              </div>
+              <a href="https://www.sec.gov/Archives/edgar/data/1652044/000119312519305505/d843403dex991.htm" class="source-item-link" target="_blank" rel="noopener noreferrer">
+                <span>SEC Archive Edgar Filing Form 8-K</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+
+            <article class="source-item-card reveal-on-scroll">
+              <div>
+                <span class="source-type-tag">Official Product Portal</span>
+                <h3 class="source-item-title">Official Google Chrome Website</h3>
+                <p class="source-item-desc">
+                  Official product landing site, security specifications, and feature documentation for the Chrome web browser.
+                </p>
+              </div>
+              <a href="https://www.google.com/chrome/" class="source-item-link" target="_blank" rel="noopener noreferrer">
+                <span>https://www.google.com/chrome/</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+
+            <article class="source-item-card reveal-on-scroll">
+              <div>
+                <span class="source-type-tag">Official Ecosystem Portal</span>
+                <h3 class="source-item-title">Official Android Operating System Portal</h3>
+                <p class="source-item-desc">
+                  Platform architecture, device partnerships, developer APIs, and open ecosystem resources for Android.
+                </p>
+              </div>
+              <a href="https://www.android.com/" class="source-item-link" target="_blank" rel="noopener noreferrer">
+                <span>https://www.android.com/</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+          </div>
+
+          <div class="citation-note">
+            <strong>Citations & Verification Policy:</strong> This educational showcase rigorously distinguishes between direct historical facts (such as documented appointment dates, official launch announcements, and corporate SEC filings) and editorial commentary regarding product philosophy. All links are configured with safe browsing attributes (<code>rel="noopener noreferrer"</code>) and tested for live accessibility.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <div>
+            <div class="footer-brand">THE BUILDER’S JOURNEY</div>
+            <div class="footer-subhead">ENTREPRENEUR SHOWCASE · COLLEGE TECHNICAL TEAM RECRUITMENT</div>
+            <p class="footer-closing">
+              A tribute to engineering leadership, product conviction, and the relentless pursuit of simplicity. Great products emerge from deep technical empathy, consensus-driven execution, and long-term vision.
+            </p>
+          </div>
+
+          <div>
+            <div class="footer-nav-title">Section Directory</div>
+            <ul class="footer-nav-list">
+              <li><a href="#overview" class="footer-nav-link">Entrepreneur Overview</a></li>
+              <li><a href="#timeline" class="footer-nav-link">Chronological Career Milestones</a></li>
+              <li><a href="#ventures" class="footer-nav-link">Ventures & Product Case Studies</a></li>
+              <li><a href="#gallery" class="footer-nav-link">Archival Photo Gallery</a></li>
+              <li><a href="#impact" class="footer-nav-link">Impact Beyond the Title</a></li>
+              <li><a href="#lessons" class="footer-nav-link">Lessons for Aspiring Builders</a></li>
+              <li><a href="#sources" class="footer-nav-link">Verified Bibliography & Sources</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>
+            <p>© <span id="current-year">2026</span> The Builder's Journey. Built for Academic Recruitment Evaluation.</p>
+          </div>
+          <div class="footer-disclaimer">
+            <p>
+              Independent academic study created by a 2nd-year B.Tech CSE student. This website is not endorsed by, sponsored by, or affiliated with Google LLC, Alphabet Inc., or Sundar Pichai.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Floating Button -->
+    <button type="button" id="back-to-top" aria-label="Back to top of page">
+      <span aria-hidden="true">↑</span>
+    </button>
+
+    <!-- Interactive Lightbox Modal -->
+    <div id="lightbox-modal" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Photo View">
+      <div class="lightbox-content-box">
+        <button type="button" id="lightbox-close-btn" class="lightbox-close-btn" aria-label="Close Lightbox">✕</button>
+        <div class="lightbox-image-wrap">
+          <img id="lightbox-img" src="" alt="Enlarged photo" class="lightbox-img" />
+        </div>
+        <div class="lightbox-details">
+          <div id="lightbox-meta" class="lightbox-meta-row"></div>
+          <h3 id="lightbox-title" class="lightbox-title"></h3>
+          <p id="lightbox-desc" class="lightbox-desc"></p>
+          <div id="lightbox-license" class="lightbox-license"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Gemini AI Chatbot Trigger Button -->
+    <button type="button" id="chatbot-trigger-btn" class="chatbot-trigger-btn" aria-label="Open AI Leadership Biographer" aria-expanded="false" aria-controls="chatbot-drawer">
+      <span aria-hidden="true">💬</span>
+      <span>Ask Biographer AI</span>
+    </button>
+
+    <!-- Gemini AI Chatbot Drawer ("The Builder's Companion") -->
+    <div id="chatbot-drawer" class="chatbot-drawer" role="dialog" aria-modal="true" aria-label="AI Leadership Biographer Chat">
+      <div class="chatbot-header">
+        <div class="chatbot-header-info">
+          <div class="chatbot-avatar" aria-hidden="true">SP</div>
+          <div>
+            <div class="chatbot-header-title">The Builder's Companion</div>
+            <div class="chatbot-header-sub">AI BIOGRAPHER · GEMINI 3.8 FLASH</div>
+          </div>
+        </div>
+        <button type="button" id="chatbot-close-btn" class="chatbot-close-btn" aria-label="Close Chat">✕</button>
+      </div>
+
+      <div id="chatbot-messages" class="chatbot-messages" aria-live="polite">
+        <!-- Messages rendered dynamically -->
+      </div>
+
+      <form id="chatbot-form" class="chatbot-input-area">
+        <input 
+          type="text" 
+          id="chatbot-input" 
+          class="chatbot-input" 
+          placeholder="Ask about Chrome, Android, or leadership..." 
+          autocomplete="off"
+          aria-label="Your question"
+        />
+        <button type="submit" id="chatbot-send-btn" class="chatbot-send-btn" aria-label="Send message">
+          <span aria-hidden="true">↑</span>
+        </button>
+      </form>
+    </div>
+
+    <!-- Application Script -->
+    <script src="app.js"></script>
+  </body>
+</html>
